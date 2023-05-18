@@ -1,0 +1,15 @@
+.slide-in {
+  position: relative;
+  left: -100%;
+  animation: slideInAnimation 2s forwards;
+}
+
+@keyframes slideInAnimation {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 0;
+  }
+}
