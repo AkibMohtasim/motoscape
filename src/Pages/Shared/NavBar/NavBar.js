@@ -1,9 +1,26 @@
 import { Avatar, Dropdown, Navbar } from 'flowbite-react';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../../../images/NavBar/logo.jpg';
+import { AuthContext } from '../../../Contexts/AuthProvider';
+import useAdmin from '../../../Hooks/useAdmin';
+
+
 
 const NavBar = () => {
+
+  const { user, setUser, logOut } = useContext(AuthContext);
+  const [isAdmin] = useAdmin(user?.email);
+
+  const logOutHandler = () => {
+    const confirm = window.confirm('Are you sure you want to sign out?')
+
+    if (confirm) {
+      logOut()
+        .then(setUser({}))
+        .catch(err => console.log(err.message))
+    }
+  }
 
   const location = useLocation();
 
@@ -32,33 +49,33 @@ const NavBar = () => {
         </Link>
       </Navbar.Brand>
       <div className="flex md:order-2">
-        <Dropdown
-          arrowIcon={false}
-          inline={true}
-          label={<Avatar alt="User settings" img="https://flowbite.com/docs/images/people/profile-picture-5.jpg" rounded={true} />}
-        >
-          <Dropdown.Header>
-            <span className="block text-sm">
-              Bonnie Green
-            </span>
-            <span className="block truncate text-sm font-medium">
-              name@flowbite.com
-            </span>
-          </Dropdown.Header>
-          <Dropdown.Item>
-            Dashboard
-          </Dropdown.Item>
-          <Dropdown.Item>
-            Settings
-          </Dropdown.Item>
-          <Dropdown.Item>
-            Earnings
-          </Dropdown.Item>
-          <Dropdown.Divider />
-          <Dropdown.Item>
-            Sign out
-          </Dropdown.Item>
-        </Dropdown>
+        {
+          user?.uid ?
+            <Dropdown
+              arrowIcon={false}
+              inline={true}
+              label={<Avatar alt="User settings" img={user?.photoURL} rounded={true} />}
+            >
+              <Dropdown.Header>
+                <span className="block text-sm">
+                  {user?.displayName} {isAdmin && '(Admin)'}
+                </span>
+                <span className="block truncate text-sm font-medium">
+                  {user?.email}
+                </span>
+              </Dropdown.Header>
+              <div className='flex flex-col ms-4 gap-2'>
+                {!isAdmin && <Link to='/addReview'>Add a Review</Link>}
+                <Link to='/dashboard'>Dashboard</Link>
+              </div>
+              <Dropdown.Divider />
+              <Dropdown.Item onClick={logOutHandler}>
+                Sign out
+              </Dropdown.Item>
+            </Dropdown>
+            :
+            <Link to='/login'>Login</Link>
+        }
         <Navbar.Toggle />
       </div>
 

@@ -1,9 +1,9 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const MotorcycleDetails = () => {
 
-  const { name, brand, category, img, price, details } = useLoaderData();
+  const { _id, name, brand, category, img, price, details } = useLoaderData();
 
   const {
     engineCapacity,
@@ -23,10 +23,10 @@ const MotorcycleDetails = () => {
   return (
     <div className='flex flex-wrap'>
       <section className='bg-black text-white w-1/2 flex flex-col gap-4 items-center'>
-        <div>
+        <div className='w-[600px] mt-10'>
           <h2 className='text-4xl text-red-700'>{name}</h2>
           <h3>{brand}</h3>
-          <h4>{category}</h4>
+          <h4>{category} Bike</h4>
         </div>
 
         <div>
@@ -84,7 +84,8 @@ const MotorcycleDetails = () => {
             <p className='py-4 pl-2 border border-white w-[300px]'>{serviceInterval} or 1 year which comes first.</p>
           </div>
 
-          <p className='mt-6'>Price: ${price}</p>
+          <p className='my-6'>Price: ${price}</p>
+          <Link to={`/placeOrder/${_id}`} className='px-6 py-2 border border-white rounded-full'>Buy Now</Link>
         </div>
 
       </section>

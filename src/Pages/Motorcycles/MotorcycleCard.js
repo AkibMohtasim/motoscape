@@ -19,7 +19,7 @@ const MotorcycleCard = ({ motorcycle }) => {
         </div>
         <div className='flex flex-col gap-2 items-center'>
           <Link to={`/motorcycles/${_id}`} className='px-8 py-2 border border-black rounded-full'>View Details</Link>
-          <button className='px-8 py-2 border border-black rounded-full'>Add to Cart</button>
+          <Link to={`/placeOrder/${_id}`} className='px-8 py-2 border border-black rounded-full'>Buy Now</Link>
         </div>
       </Card>
     </div>

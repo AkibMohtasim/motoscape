@@ -4,7 +4,9 @@ import { useLocation } from 'react-router-dom';
 import MotorcycleCard from './MotorcycleCard';
 
 const Motorcycles = () => {
+
   const location = useLocation();
+
   const [motorcycles, setMotorcycles] = useState([]);
   const [count, setCount] = useState(0);
   // console.log(location.search)
@@ -25,7 +27,7 @@ const Motorcycles = () => {
   let url = `http://localhost:5000/api/motorcycles${location.search}&pageNumber=${currentPage}&pageSize=${itemsPerPage}`;
 
   if (!location.search) {
-    url = `http://localhost:5000/api/motorcycles?pageNumber=${currentPage}&pageSize=${itemsPerPage}`
+    url = `http://localhost:5000/api/motorcycles?pageNumber=${currentPage}&pageSize=${itemsPerPage}`;
   }
 
 
@@ -33,7 +35,6 @@ const Motorcycles = () => {
     fetch(url)
       .then(res => res.json())
       .then(data => {
-        console.log(data)
         setMotorcycles(data.motorcycles);
         setCount(data.count);
       })
