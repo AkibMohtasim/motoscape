@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 
-const ManageProducts = () => {
+const ManageMotorcycles = () => {
 
   const { data: products = [], refetch } = useQuery({
     queryKey: ['products'],
@@ -44,4 +44,4 @@ const ManageProducts = () => {
   );
 };
 
-export default ManageProducts;
+export default ManageMotorcycles;

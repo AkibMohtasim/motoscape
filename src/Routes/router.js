@@ -13,9 +13,12 @@ import AdminRoute from "./AdminRoute";
 import DashboardLayout from "../Layout/DashboardLayout";
 import Payment from "../Pages/Payment/Payment";
 import ManageOrders from "../Pages/AdminWorks/ManageOrders/ManageOrders";
-import AddProduct from "../Pages/AdminWorks/AddProduct/AddProduct";
 import ManageUsers from "../Pages/AdminWorks/ManageUsers/ManageUsers";
-import ManageProducts from "../Pages/AdminWorks/ManageProducts/ManageProducts";
+import ManageMotorcycles from "../Pages/AdminWorks/ManageMotorcycles/ManageMotorcycles";
+import AddMotorcycle from "../Pages/AdminWorks/AddMotorcycle/AddMotorcycle";
+import AddAccessory from "../Pages/AdminWorks/AddAccessory/AddAccessory";
+import ManageAccessories from "../Pages/AdminWorks/ManageAccessories/ManageAccessories";
+import Accessories from "../Pages/Accessories/Accessories";
 
 
 
@@ -31,6 +34,10 @@ const routes = createBrowserRouter([
       {
         path: '/motorcycles',
         element: <Motorcycles />
+      },
+      {
+        path: '/accessories',
+        element: <Accessories />
       },
       {
         path: '/motorcycles/:id',
@@ -83,15 +90,27 @@ const routes = createBrowserRouter([
             </AdminRoute>
           },
           {
-            path: '/dashboard/manageProducts',
+            path: '/dashboard/manageMotorcycles',
             element: <AdminRoute>
-              <ManageProducts />
+              <ManageMotorcycles />
             </AdminRoute>
           },
           {
-            path: '/dashboard/addProduct',
+            path: '/dashboard/manageAccessories',
             element: <AdminRoute>
-              <AddProduct />
+              <ManageAccessories />
+            </AdminRoute>
+          },
+          {
+            path: '/dashboard/addMotorcycle',
+            element: <AdminRoute>
+              <AddMotorcycle />
+            </AdminRoute>
+          },
+          {
+            path: '/dashboard/addAccessory',
+            element: <AdminRoute>
+              <AddAccessory />
             </AdminRoute>
           },
           {

@@ -31,8 +31,10 @@ const DashboardLayout = () => {
             {
               isAdmin && <>
                 <Sidebar.Item><Link to='/dashboard/manageOrders'>Manage Orders</Link></Sidebar.Item>
-                <Sidebar.Item><Link to='/dashboard/manageProducts'>Manage Products</Link></Sidebar.Item>
-                <Sidebar.Item><Link to='/dashboard/addProduct'>Add a Product</Link></Sidebar.Item>
+                <Sidebar.Item><Link to='/dashboard/manageMotorcycles'>Manage Motorcycles</Link></Sidebar.Item>
+                <Sidebar.Item><Link to='/dashboard/manageAccessories'>Manage Accessories</Link></Sidebar.Item>
+                <Sidebar.Item><Link to='/dashboard/addMotorcycle'>Add a Motorcycle</Link></Sidebar.Item>
+                <Sidebar.Item><Link to='/dashboard/addAccessory'>Add an Accessory</Link></Sidebar.Item>
                 <Sidebar.Item><Link to='/dashboard/manageUsers'>Manage Users</Link></Sidebar.Item>
               </>
             }
