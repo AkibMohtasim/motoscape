@@ -1,0 +1,35 @@
+.banner-text-animation {
+  animation: animation 2.5s forwards;
+}
+
+@keyframes animation {
+  0% {
+    opacity: 0;
+    color: brown;
+  }
+
+  100% {
+    opacity: 1;
+    color: aliceblue;
+  }
+}
+
+.flame-animation {
+  animation-name: scaleAnimation;
+  animation-duration: 0.15s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes scaleAnimation {
+  0% {
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: scale(1.3);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}

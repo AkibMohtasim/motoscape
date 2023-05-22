@@ -32,10 +32,11 @@ const Reviews = ({ medium }) => {
   }, [url, medium, currentPage])
 
 
+
   return (
     <div className='flex flex-col gap-4'>
       <h2>Total Reviews: {count}</h2>
-      <div className='flex flex-wrap gap-4'>
+      <div className='flex flex-wrap gap-4 justify-center tracking-wide'>
         {
           reviews ?
             reviews?.map(r => {
@@ -43,7 +44,7 @@ const Reviews = ({ medium }) => {
               const { _id, userName, rating, review, medium } = r;
 
               return (
-                <div key={_id} className='w-1/5'>
+                <div key={_id} className='md:w-1/5'>
                   <h2>{userName}</h2>
                   {/* <p>{rating > 4 ? '★★★★★' : '★★★★☆'}</p> */}
                   <p>{'★'.repeat(rating)}{'☆'.repeat(5 - rating)}</p>
@@ -59,8 +60,10 @@ const Reviews = ({ medium }) => {
       <Pagination
         currentPage={currentPage}
         onPageChange={onPageChange}
+        layout="navigation"
         showIcons={true}
         totalPages={pages}
+        className='text-center'
       />
     </div>
   );

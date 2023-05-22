@@ -1,66 +1,60 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import './FullLineup.css';
 
 const FullLineup = () => {
 
-  const [showComponent, setShowComponent] = useState(false);
-
-  useEffect(() => {
-    // Delay showing the component for 1.5 seconds
-    const timer = setTimeout(() => {
-      setShowComponent(true);
-    }, 1500);
-
-    return () => clearTimeout(timer);
-  }, []);
-
-
-
-
   return (
-    <div className={`flex flex-col items-center bg-black text-white`}>
-      <h2 className='text-2xl'>The full line up</h2>
-      <p className='text-lg'>A variety of motorcycles for every rider.</p>
+    <div className='flex flex-col items-center bg-black text-white pt-10 text-center'>
+      <h2 className='md:text-6xl text-4xl tracking-widest mb-4 underline underline-offset-4 decoration-2 decoration-red-600'>The full line up</h2>
+      <p className='text-xl tracking-wider'>A variety of motorcycles for every rider.</p>
 
-      <h2>Browse by Brands</h2>
-      <section id='box' className={`flex gap-8 justify-center items-center slide-in ${showComponent ? 'show' : ''}`}>
-        <Link to='/motorcycles?brand=Triumph' className='w-1/4 hover:scale-110 duration-150 cursor-pointer'>
-          <img src="https://cdn-0.motorcycle-logos.com/wp-content/uploads/2017/08/Triumph-logo-2013.jpg" alt="" srcset="" className='w-full' />
-        </Link>
-        <Link to='/motorcycles?brand=Honda' className='w-1/4 hover:scale-110 duration-150 cursor-pointer'>
-          <img src="https://www.logo.wine/a/logo/Honda/Honda-Logo.wine.svg" alt="" srcset="" className='w-full' />
-        </Link>
-        <Link to='/motorcycles?brand=Yamaha' className='w-1/4 hover:scale-110 duration-150 cursor-pointer'>
-          <img src="https://worldagritechusa.com/wp-content/uploads/2019/01/Yamaha-Logo.png" alt="" srcset="" className='w-full' />
-        </Link>
+
+      {/* -------------- Brand section ----------- */}
+
+      <section className='mt-20 flex flex-col md:gap-2 gap-8 justify-center items-center py-4 md:py-0 w-4/5 md:w-full'>
+        <h2 className='md:text-4xl text-3xl underline underline-offset-4 decoration-2 decoration-red-600'>Browse by Brands</h2>
+        <div className='flex md:flex-row flex-col md:gap-8 gap-2 justify-center items-center'>
+          <Link to='/motorcycles?brand=Triumph' className='md:w-1/4 w-1/2 hover:scale-110 duration-150 cursor-pointer flex justify-center items-center'>
+            <img src="https://cdn-0.motorcycle-logos.com/wp-content/uploads/2017/08/Triumph-logo-2013.jpg" alt="" srcset="" className='md:w-3/4 w-full' />
+          </Link>
+          <Link to='/motorcycles?brand=Honda' className='md:w-1/4 w-1/2 hover:scale-110 duration-150 cursor-pointer flex justify-center items-center'>
+            <img src="https://www.logo.wine/a/logo/Honda/Honda-Logo.wine.svg" alt="" srcset="" className='w-full' />
+          </Link>
+          <Link to='/motorcycles?brand=Yamaha' className='md:w-1/4 w-1/2 hover:scale-110 duration-150 cursor-pointer flex justify-center items-center'>
+            <img src="https://worldagritechusa.com/wp-content/uploads/2019/01/Yamaha-Logo.png" alt="" srcset="" className='md:w-3/4 w-full' />
+          </Link>
+        </div>
       </section>
 
-      <h2>Browse by Categories</h2>
+      {/* -------------- category section ----------- */}
 
-      <section className='flex gap-4 flex-wrap'>
-        <Link to='/motorcycles?category=Adventure' className='w-[20vw] h-[35vh] bg-cover bg-center' style={{ backgroundImage: 'url("https://www.madornomad.com/wp-content/uploads/2022/04/New-Adventure-Bikes-of-2023-1.jpg")' }}>
-          <h2>Adventure</h2>
-        </Link>
-        <Link to='/motorcycles?category=Sport' className='w-[20vw] h-[35vh] bg-cover bg-center' style={{ backgroundImage: 'url("https://www.webbikeworld.com/wp-content/uploads/2020/05/2022-Yamaha-YZF-R7.jpg")' }} >
-          <img src="" alt="" srcset="" />
-          <h2>Sport</h2>
-        </Link>
-        <Link to='/motorcycles?category=Cruiser' className='w-[20vw] h-[35vh] bg-cover bg-center' style={{ backgroundImage: 'url("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/p90451706-highres-1659455646.jpg?crop=0.943xw:0.707xh;0,0.164xh&resize=980:*")' }}>
-          <img src="" alt="" srcset="" />
-          <h2>Cruiser</h2>
-        </Link>
-        <Link to='/motorcycles?category=Naked' className='w-[20vw] h-[35vh] bg-cover bg-center' style={{ backgroundImage: 'url("https://cdn.visordown.com/styles/v2_large/s3/field/image/Triumph%20Speed%20Triple_0.jpg?itok=wHuvDhjQ")' }}>
-          <img src="" alt="" srcset="" />
-          <h2>Naked Sport</h2>
-        </Link>
+      <section className='mt-20 flex flex-col gap-8 justify-center items-center py-4 md:py-0 w-4/5 md:w-full'>
+        <h2 className='md:text-4xl text-3xl underline underline-offset-4 decoration-2 decoration-red-600'>Browse by Categories</h2>
+        <div className='flex md:flex-row flex-col md:gap-8 gap-2 justify-center items-center'>
+          <Link to='/motorcycles?category=Adventure' className='md:w-[18vw] md:h-[31vh] w-64 h-48 bg-cover bg-center flex items-center justify-center' style={{
+            backgroundImage: 'linear-gradient(90deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://www.madornomad.com/wp-content/uploads/2022/04/New-Adventure-Bikes-of-2023-1.jpg")'
+          }}>
+            <h2 className='text-2xl tracking-wide p-2 bg-[#0000009F] w-full hover:bg-transparent hover:text-3xl duration-100'>Adventure</h2>
+          </Link>
+          <Link to='/motorcycles?category=Sport' className='md:w-[18vw] md:h-[31vh] w-64 h-48 bg-cover bg-center flex items-center justify-center' style={{ backgroundImage: 'linear-gradient(90deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://www.webbikeworld.com/wp-content/uploads/2020/05/2022-Yamaha-YZF-R7.jpg")' }} >
+
+            <h2 className='text-2xl tracking-wide p-2 bg-[#0000009F] w-full hover:bg-transparent hover:text-3xl duration-100'>Sport</h2>
+          </Link>
+          <Link to='/motorcycles?category=Cruiser' className='md:w-[18vw] md:h-[31vh] w-64 h-48 bg-cover bg-center flex items-center justify-center' style={{ backgroundImage: 'linear-gradient(90deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/p90451706-highres-1659455646.jpg?crop=0.943xw:0.707xh;0,0.164xh&resize=980:*")' }}>
+
+            <h2 className='text-2xl tracking-wide p-2 bg-[#0000009F] w-full hover:bg-transparent hover:text-3xl duration-100'>Cruiser</h2>
+          </Link>
+          <Link to='/motorcycles?category=Naked' className='md:w-[18vw] md:h-[31vh] w-64 h-48 bg-cover bg-center flex items-center justify-center' style={{ backgroundImage: 'linear-gradient(90deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://cdn.visordown.com/styles/v2_large/s3/field/image/Triumph%20Speed%20Triple_0.jpg?itok=wHuvDhjQ")' }}>
+
+            <h2 className='text-2xl tracking-wide p-2 bg-[#0000009F] w-full hover:bg-transparent hover:text-3xl duration-100'>Naked Sport</h2>
+          </Link>
+        </div>
       </section>
 
-      <h2 className='text-3xl'>See all Bikes</h2>
-      <section>
-        <Link to='/motorcycles' className='text-4xl'>See All Bikes</Link>
-      </section>
-    </div>
+      <section className='md:my-20 my-10 w-4/5 h-20'>
+        <Link to='/motorcycles' className='md:text-2xl text-lg rounded-full border border-red-600 hover:bg-red-600 hover:text-white duration-150 md:px-8 px-4 md:py-4 py-2'>See All Bikes</Link>
+      </section >
+    </div >
   );
 };
 
