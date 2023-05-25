@@ -1,4 +1,4 @@
-import { Pagination } from 'flowbite-react';
+import { Pagination, Spinner } from 'flowbite-react';
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import MotorcycleCard from './MotorcycleCard';
@@ -39,6 +39,17 @@ const Motorcycles = () => {
         setCount(data.count);
       })
   }, [url]);
+
+  if (motorcycles.length < 1) {
+    return (
+      <div className='text-center my-10'>
+        <Spinner
+          aria-label="Extra large spinner example"
+          size="xl"
+        />
+      </div>
+    )
+  }
 
   return (
     <div className='text-center py-10'>

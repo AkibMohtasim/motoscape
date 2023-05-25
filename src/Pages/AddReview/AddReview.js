@@ -42,19 +42,20 @@ const AddReview = () => {
 
 
   return (
-    <div className='mx-auto flex flex-col items-center'>
-      <form onSubmit={addReviewHandler} className='w-full max-w-xs mx-auto my-10 text-black'>
-        <div>
+    <div className='mx-auto'>
+      <h2 className='text-4xl tracking-wider text-center mt-6 underline underline-offset-2 decoration-red-600 decoration-2'>Add a Review</h2>
+      <form onSubmit={addReviewHandler} className='max-w-xs mx-auto my-10 text-black flex flex-col items-start gap-4'>
+        <div className='w-80'>
           <label>
             <span className="">Name</span>
           </label>
-          <input type="text" name='name' className="w-full max-w-xs" defaultValue={user.displayName} required />
+          <input type="text" name='name' className="w-full max-w-xs font-sans" defaultValue={user.displayName} required />
         </div>
         <div>
           <label>
             <span className="">Rating</span>
           </label>
-          <select id="rating" name="rating" required>
+          <select id="rating" name="rating" defaultValue="5" className='ms-2 rounded' required>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -66,9 +67,9 @@ const AddReview = () => {
           <label>
             <span className="">Review</span>
           </label>
-          <textarea name="review" className="w-80" placeholder="Write Your Review..."></textarea>
+          <textarea name="review" className="w-80 h-32 font-sans" placeholder="Write Your Review..."></textarea>
         </div>
-        <button type="submit" className="border border-black rounded-full px-6 py-2 mt-2">Submit</button>
+        <button type="submit" className="border border-black hover:border-transparent rounded-full px-6 py-2 mt-2 hover:bg-gray-600 hover:text-white duration-150">Submit</button>
       </form>
     </div>
   );

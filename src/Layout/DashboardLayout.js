@@ -12,7 +12,7 @@ const DashboardLayout = () => {
 
 
   return (
-    <div className="w-fit flex">
+    <div className="w-fit flex lg:flex-row flex-col">
       <Sidebar aria-label="Default sidebar example">
         <Sidebar.Items>
           <Sidebar.ItemGroup>

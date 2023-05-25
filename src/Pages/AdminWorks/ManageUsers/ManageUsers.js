@@ -1,6 +1,7 @@
 import React from 'react';
-import User from '../User/User';
 import { useQuery } from '@tanstack/react-query';
+import { Spinner } from 'flowbite-react';
+import { MdAdminPanelSettings } from 'react-icons/md';
 
 const ManageUsers = () => {
 
@@ -31,30 +32,48 @@ const ManageUsers = () => {
     }
   }
 
+  if (users.length < 1) {
+    return (
+      <div className='text-center my-10'>
+        <Spinner
+          aria-label="Extra large spinner example"
+          size="xl"
+        />
+      </div>
+    )
+  }
+
   return (
     <div>
-      <h2>Admins</h2>
-      {
-        users?.map(user => {
-          return (
-            user.role === 'Admin' &&
-            <User key={user._id} user={user}></User>
-          )
-        })
-      }
-      <h2>Users</h2>
-      {
-        users?.map(user => {
-          return (
-            user.role === 'User' &&
-            <User key={user._id} user={user}>
-              <button onClick={() => makeAdminHandler(user._id)}>Make Admin</button>
-            </User>
-          )
-        })
-      }
-
-
+      <table>
+        <caption>
+          Manage Users (Admin)
+        </caption>
+        <thead>
+          <tr>
+            <th className='px-10 py-2 border tracking-wide'>User's Name</th>
+            <th className='px-10 py-2 border tracking-wide'>Email</th>
+            <th className='px-10 py-2 border tracking-wide'>Role</th>
+            <th className='px-10 py-2 border tracking-wide'> </th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            users?.map(user =>
+              <tr key={user._id}>
+                <td className='px-10 py-2 border'>{user.name}</td>
+                <td className='px-10 py-2 border'>{user.email}</td>
+                <td className='px-10 py-2 border'>{user.role}</td>
+                <td className='px-10 py-2 border'>
+                  {
+                    user.role === 'User' && <button onClick={() => makeAdminHandler(user._id)} className='bg-blue-600 hover:bg-blue-800 duration-150 text-white px-3 py-1 rounded'>Make Admin <MdAdminPanelSettings className='inline' /></button>
+                  }
+                </td>
+              </tr>
+            )
+          }
+        </tbody>
+      </table>
     </div>
   );
 };

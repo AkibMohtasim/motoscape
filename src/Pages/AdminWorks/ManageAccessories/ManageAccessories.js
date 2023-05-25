@@ -1,5 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
+import { Spinner } from 'flowbite-react';
 import React from 'react';
+import { MdDeleteForever } from 'react-icons/md';
 
 const ManageAccessories = () => {
   const { data: accessories = [], refetch } = useQuery({
@@ -26,18 +28,45 @@ const ManageAccessories = () => {
     }
   }
 
+  if (accessories.length < 1) {
+    return (
+      <div className='text-center my-10'>
+        <Spinner
+          aria-label="Extra large spinner example"
+          size="xl"
+        />
+      </div>
+    )
+  }
 
   return (
     <div>
-      {
-        accessories.map(a =>
-          <div key={a._id} className='flex gap-4'>
-            <p>{a.name}</p>
-            <p>{a.price}</p>
-            <button onClick={() => deleteOrderHandler(a._id)}>Delete</button>
-          </div>
-        )
-      }
+      <table>
+        <caption>
+          Manage Accessories (Admin)
+        </caption>
+        <thead>
+          <tr>
+            <th className='px-10 py-2 border'>Product Name</th>
+            <th className='px-10 py-2 border'>Status</th>
+            <th className='px-10 py-2 border'>Delivery Date</th>
+            <th className='px-10 py-2 border'> </th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            accessories.map(a =>
+              <tr key={a._id}>
+                <td className='px-10 py-2 border'>{a.name}</td>
+                <td className='px-10 py-2 border'>{a.price}</td>
+                <td className='px-10 py-2 border'>
+                  <button onClick={() => deleteOrderHandler(a._id)} className='bg-red-600 hover:bg-red-800 duration-150 text-white px-3 py-1 rounded'>Delete <MdDeleteForever className='inline' /></button>
+                </td>
+              </tr>
+            )
+          }
+        </tbody>
+      </table>
     </div>
   );
 };

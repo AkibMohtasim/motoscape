@@ -35,7 +35,7 @@ const NavBar = () => {
   return (
     <Navbar
       fluid={true}
-      className='bg-black text-white'
+      className='bg-black text-white tracking-wider'
       style={{ backgroundColor: 'black' }}
     >
       <Navbar.Brand>
@@ -83,7 +83,6 @@ const NavBar = () => {
 
         {
           navItems?.map(item =>
-
             <Link
               key={item.path}
               to={item.path}

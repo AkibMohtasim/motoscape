@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Contexts/AuthProvider';
+import { FcGoogle } from 'react-icons/fc';
 import useTitle from '../../Hooks/useTitle';
 
 const Login = () => {
@@ -24,8 +25,8 @@ const Login = () => {
 
     userLogin(email, password)
       .then(result => {
-        const user = result.user;
-        console.log(user);
+        // const user = result.user;
+        // console.log(user);
         form.reset();
         navigate(from, { replace: true });
         setErrText(null);
@@ -49,35 +50,35 @@ const Login = () => {
 
   return (
 
-    <div className="hero min-h-[70vh] adventure-font">
-      <div className="hero-overlay bg-opacity-60"></div>
-      <div className="hero-content text-center text-neutral-content">
+    <div className="min-h-[70vh]">
+      <div className="bg-opacity-60"></div>
+      <div className="text-center text-neutral-content">
         <div className='flex flex-col items-center'>
           <div className='text-center'>
-            <h2 className='custom-font font-bold text-7xl mt-5'>Login</h2>
+            <h2 className='text-7xl mt-5'>Login</h2>
           </div>
 
           <form onSubmit={loginHandler} className="form-control w-full max-w-xs mx-auto mt-10">
             <div>
-              <label className="label">
+              <label>
                 <span className="label-text">Email</span>
               </label>
-              <input type="email" name='email' placeholder="email" className="input input-bordered w-full max-w-xs text-black" required />
+              <input type="email" name='email' placeholder="email" className="input input-bordered w-full max-w-xs text-black font-sans" required />
             </div>
             <div>
-              <label className="label">
+              <label>
                 <span className="label-text">Password</span>
               </label>
-              <input type="password" name='password' placeholder="password" className="input input-bordered w-full max-w-xs text-black" required />
+              <input type="password" name='password' placeholder="password" className="input input-bordered w-full max-w-xs text-black font-sans" required />
               {errText}
             </div>
 
-            <button type="submit" className="btn btn-outline btn-ghost mt-4 w-1/2 mx-auto">Login</button>
+            <button type="submit" className="mt-4 px-6 py-2 text-lg rounded-full bg-red-600 text-white  duration-150 tracking-wider">Login</button>
           </form>
           <p className='my-2 text-xl'>or,</p>
 
-          <button onClick={googleSignInHandler} type="submit" className="btn btn-outline btn-ghost my-2">Google Sign-in</button>
-          <p className='my-5 text-lg'>New to Madventurers? <Link to='/signup' className='text-orange-500'>Register</Link></p>
+          <button onClick={googleSignInHandler} type="submit" className="my-2 px-6 py-2 text-lg rounded-full border border-gray-600 text-gray-700 hover:text-white hover:bg-gray-700 duration-150 tracking-wider"><FcGoogle className='inline' /> Sign-in</button>
+          <p className='my-5 text-lg'>New to Motoscape? <Link to='/signup' className='text-red-600 underline underline-2'>Register</Link></p>
         </div>
       </div>
     </div>

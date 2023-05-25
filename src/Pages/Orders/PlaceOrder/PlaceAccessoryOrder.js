@@ -2,11 +2,11 @@ import React, { useContext } from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider';
 
-const PlaceOrder = () => {
+const PlaceAccessoryOrder = () => {
 
   const { user } = useContext(AuthContext);
 
-  const { _id, name, brand, details, price, img } = useLoaderData();
+  const { _id, name, price, img } = useLoaderData();
 
   const navigate = useNavigate();
 
@@ -22,8 +22,8 @@ const PlaceOrder = () => {
     const message = form.message.value;
 
     const order = {
-      bike_id: _id,
-      bikeName: name,
+      product_id: _id,
+      productName: name,
       price,
       customerName,
       email,
@@ -59,8 +59,6 @@ const PlaceOrder = () => {
       <div className='w-1/2'>
         <div className='text-center'>
           <h1 className="mb-5 text-5xl font-bold">{name}</h1>
-          <p>Brand: {brand}</p>
-          <p>Engine Capacity: {details.engineCapacity}</p>
           <p className="mb-5">Price: ${price}</p>
         </div>
         <form onSubmit={orderHandler} className="w-full max-w-xs mx-auto my-10 text-black font-sans tracking-tight">
@@ -110,4 +108,4 @@ const PlaceOrder = () => {
   );
 };
 
-export default PlaceOrder;
+export default PlaceAccessoryOrder;

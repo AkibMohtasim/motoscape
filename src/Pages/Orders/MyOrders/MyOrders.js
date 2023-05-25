@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../Contexts/AuthProvider';
 import OrderTable from './OrderTable';
-import { Table } from 'flowbite-react';
 
 const MyOrders = () => {
 
@@ -36,39 +35,31 @@ const MyOrders = () => {
     }
   }
 
+  if (orders.length === 0) {
+    return <h2 className='text-xl font-extralight tracking-wide text-center my-8 text-gray-800'>You haven't placed any orders.</h2>
+  }
+
   return (
 
     <div>
-      <h2>Orders for {user?.displayName}</h2>
-      <Table hoverable={true}>
-        <Table.Head>
-          <Table.HeadCell>
-            Cusomter name
-          </Table.HeadCell>
-          <Table.HeadCell>
-            Phone Number
-          </Table.HeadCell>
-          <Table.HeadCell>
-            Bike Name
-          </Table.HeadCell>
-          <Table.HeadCell>
-            Price
-          </Table.HeadCell>
-          <Table.HeadCell>
-            Delivery Date
-          </Table.HeadCell>
-          <Table.HeadCell>
-            <span className="sr-only">
-              Cancel
-            </span>
-          </Table.HeadCell>
-        </Table.Head>
-        <Table.Body className="divide-y">
+      <table className='table-auto mb-8'>
+        <caption className="caption-top text-center py-4">
+          Orders for {user?.displayName}
+        </caption>
+        <thead>
+          <tr>
+            <th className='px-10 py-2 border'>Product Name</th>
+            <th className='px-10 py-2 border'>Status</th>
+            <th className='px-10 py-2 border'>Delivery Date</th>
+            <th className='px-10 py-2 border'> </th>
+          </tr>
+        </thead>
+        <tbody>
           {
             orders.map(order => <OrderTable key={order._id} order={order} deleteOrder={deleteOrder}></OrderTable>)
           }
-        </Table.Body>
-      </Table>
+        </tbody>
+      </table>
     </div>
   );
 };

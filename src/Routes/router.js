@@ -19,6 +19,8 @@ import AddMotorcycle from "../Pages/AdminWorks/AddMotorcycle/AddMotorcycle";
 import AddAccessory from "../Pages/AdminWorks/AddAccessory/AddAccessory";
 import ManageAccessories from "../Pages/AdminWorks/ManageAccessories/ManageAccessories";
 import Accessories from "../Pages/Accessories/Accessories";
+import PlaceAccessoryOrder from "../Pages/Orders/PlaceOrder/PlaceAccessoryOrder";
+import TestRideForm from "../Pages/TestRideForm/TestRideForm";
 
 
 
@@ -40,15 +42,26 @@ const routes = createBrowserRouter([
         element: <Accessories />
       },
       {
+        path: '/testRide',
+        element: <TestRideForm />
+      },
+      {
         path: '/motorcycles/:id',
         element: <MotorcycleDetails />,
         loader: ({ params }) => fetch(`http://localhost:5000/api/motorcycles/${params.id}`)
       },
       {
-        path: '/placeOrder/:id',
+        path: '/placeOrder/motorcycle/:id',
         loader: ({ params }) => fetch(`http://localhost:5000/api/motorcycles/${params.id}`),
         element: <PrivateRoute>
           <PlaceOrder />
+        </PrivateRoute>
+      },
+      {
+        path: '/placeOrder/accessory/:id',
+        loader: ({ params }) => fetch(`http://localhost:5000/api/accessories/${params.id}`),
+        element: <PrivateRoute>
+          <PlaceAccessoryOrder />
         </PrivateRoute>
       },
       {

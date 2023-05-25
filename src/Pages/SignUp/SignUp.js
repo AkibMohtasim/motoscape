@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useTitle from '../../Hooks/useTitle';
+import { FcGoogle } from 'react-icons/fc';
 
 
 
@@ -97,40 +98,40 @@ const SignUp = () => {
               <label>
                 <span>First Name</span>
               </label>
-              <input type="text" name='firstName' placeholder="first name" className="input input-bordered w-full max-w-xs text-black" required />
+              <input type="text" name='firstName' placeholder="first name" className="input input-bordered w-full max-w-xs text-black font-sans" required />
             </div>
             <div>
               <label>
                 <span>Last Name</span>
               </label>
-              <input type="text" name='lastName' placeholder="last name" className="input input-bordered w-full max-w-xs text-black" required />
+              <input type="text" name='lastName' placeholder="last name" className="input input-bordered w-full max-w-xs text-black font-sans" required />
             </div>
             <div>
               <label>
                 <span>Email</span>
               </label>
-              <input type="email" name='email' placeholder="email" className="input input-bordered w-full max-w-xs text-black" required />
+              <input type="email" name='email' placeholder="email" className="input input-bordered w-full max-w-xs text-black font-sans" required />
             </div>
             <div>
               <label>
                 <span>Password</span>
               </label>
-              <input type="password" name='password' placeholder="password" className="input input-bordered w-full max-w-xs text-black" required />
+              <input type="password" name='password' placeholder="password" className="input input-bordered w-full max-w-xs text-black font-sans" required />
             </div>
             <div>
               <label>
                 <span>Confirm Password</span>
               </label>
-              <input type="password" name='confirm' placeholder="confirm password" className="input input-bordered w-full max-w-xs text-black" />
+              <input type="password" name='confirm' placeholder="confirm password" className="input input-bordered w-full max-w-xs text-black font-sans" />
               {errText}
             </div>
 
-            <button type="submit" className="btn btn-outline btn-ghost mt-4 w-1/2 mx-auto">Sign up</button>
+            <button type="submit" className="mt-4 px-6 py-2 text-lg rounded-full bg-red-600 text-white  duration-150 tracking-wider">Sign up</button>
           </form>
           <p className='my-2 text-xl'>or,</p>
 
-          <button onClick={googleSignInHandler} type="submit" className="btn btn-outline btn-ghost my-2">Google Sign-in</button>
-          <p className='my-5 text-lg'>Already have an account? <Link to='/login' className='text-orange-500'>Login</Link></p>
+          <button onClick={googleSignInHandler} type="submit" className="my-2 px-6 py-2 text-lg rounded-full border border-gray-600 text-gray-700 hover:text-white hover:bg-gray-700 duration-150 tracking-wider"><FcGoogle className='inline' /> Sign-in</button>
+          <p className='my-5 text-lg'>Already have an account? <Link to='/login' className='text-red-600 underline underline-offset-2'>Login</Link></p>
         </div>
       </div>
     </div>

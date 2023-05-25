@@ -51,9 +51,9 @@ const AddMotorcycle = () => {
 
 
   return (
-    <div>
-      <h2>Add a new Motorcyle</h2>
-      <form onSubmit={productSubmitHandler} className='flex flex-col items'>
+    <div className='w-96 px-2 my-8'>
+      <h2 className='text-2xl tracking-wider mb-6'>Add a new Motorcyle</h2>
+      <form onSubmit={productSubmitHandler} className='flex flex-col gap-2 font-sans'>
         <input type="text" name="brand" placeholder='brand' required />
         <select name="category" required defaultValue="none">
           <option value="none" disabled>Choose a category</option>
@@ -63,9 +63,9 @@ const AddMotorcycle = () => {
           <option value="Cruiser">Cruiser</option>
         </select>
         <input type="text" name="name" placeholder='name' required />
-        <input type="text" name="img" placeholder='image' required />
-        <input type="text" name="price" placeholder='write the number only. for example - 5000' required />
-        <input type="text" name="engineCapacity" placeholder='engine capacity' required />
+        <input type="text" name="img" placeholder='image URL' required />
+        <input type="text" name="price" placeholder='Write the number only. for example - 5000' required />
+        <input type="text" name="engineCapacity" placeholder='engine capacity. e.g. 650cc' required />
         <input type="text" name="maxPower" placeholder='max power' required />
         <input type="text" name="maxTorque" placeholder='max torque' required />
         <input type="text" name="gearbox" placeholder='Gear Box' required />
@@ -78,7 +78,7 @@ const AddMotorcycle = () => {
         <input type="text" name="fuelCapacity" placeholder='Fuel Capacity' required />
         <input type="text" name="wetWeight" placeholder='Wet Weight' required />
         <input type="text" name="serviceInterval" placeholder='Service Interval' required />
-        <input type="submit" value="Submit" />
+        <input type="submit" value="Submit" className='border border-black rounded-full px-4 py-2 w-32 hover:bg-red-600 hover:border-transparent hover:text-white duration-150 cursor-pointer mx-auto mt-2' />
       </form>
     </div>
   );
