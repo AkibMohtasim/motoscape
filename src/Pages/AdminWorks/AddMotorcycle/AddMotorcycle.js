@@ -31,7 +31,7 @@ const AddMotorcycle = () => {
       }
     }
 
-    fetch('http://localhost:5000/api/motorcycles', {
+    fetch('https://motoscape-server.vercel.app/api/motorcycles', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

@@ -8,7 +8,7 @@ const ManageUsers = () => {
   const { data: users = [], refetch } = useQuery({
     queryKey: ['users'],
     queryFn: async () => {
-      const res = await fetch('http://localhost:5000/api/users');
+      const res = await fetch('https://motoscape-server.vercel.app/api/users');
       const data = await res.json();
       return data;
     }
@@ -21,7 +21,7 @@ const ManageUsers = () => {
     const confirm = window.confirm('Are you sure you want to make this user an Admin?');
 
     if (confirm) {
-      fetch(`http://localhost:5000/api/users/admin/${id}`, {
+      fetch(`https://motoscape-server.vercel.app/api/users/admin/${id}`, {
         method: 'PUT'
       })
         .then(res => res.json())

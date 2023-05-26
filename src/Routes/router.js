@@ -48,18 +48,18 @@ const routes = createBrowserRouter([
       {
         path: '/motorcycles/:id',
         element: <MotorcycleDetails />,
-        loader: ({ params }) => fetch(`http://localhost:5000/api/motorcycles/${params.id}`)
+        loader: ({ params }) => fetch(`https://motoscape-server.vercel.app/api/motorcycles/${params.id}`)
       },
       {
         path: '/placeOrder/motorcycle/:id',
-        loader: ({ params }) => fetch(`http://localhost:5000/api/motorcycles/${params.id}`),
+        loader: ({ params }) => fetch(`https://motoscape-server.vercel.app/api/motorcycles/${params.id}`),
         element: <PrivateRoute>
           <PlaceOrder />
         </PrivateRoute>
       },
       {
         path: '/placeOrder/accessory/:id',
-        loader: ({ params }) => fetch(`http://localhost:5000/api/accessories/${params.id}`),
+        loader: ({ params }) => fetch(`https://motoscape-server.vercel.app/api/accessories/${params.id}`),
         element: <PrivateRoute>
           <PlaceAccessoryOrder />
         </PrivateRoute>

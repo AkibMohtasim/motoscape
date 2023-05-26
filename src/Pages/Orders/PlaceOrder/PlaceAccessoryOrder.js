@@ -34,7 +34,7 @@ const PlaceAccessoryOrder = () => {
       status: 'Pending'
     }
 
-    fetch('http://localhost:5000/api/orders', {
+    fetch('https://motoscape-server.vercel.app/api/orders', {
       method: 'post',
       headers: {
         'content-type': 'application/json'

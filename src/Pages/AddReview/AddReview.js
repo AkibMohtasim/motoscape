@@ -21,7 +21,7 @@ const AddReview = () => {
       review
     }
 
-    fetch('http://localhost:5000/api/reviews', {
+    fetch('https://motoscape-server.vercel.app/api/reviews', {
       method: 'post',
       headers: {
         'content-type': 'application/json'

@@ -13,7 +13,7 @@ const AddAccessory = () => {
       description: form.description.value
     }
 
-    fetch('http://localhost:5000/api/accessories', {
+    fetch('https://motoscape-server.vercel.app/api/accessories', {
       method: 'POST',
       headers: {
         'content-type': 'application/json'

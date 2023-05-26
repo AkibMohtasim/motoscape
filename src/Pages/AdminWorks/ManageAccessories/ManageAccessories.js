@@ -7,7 +7,7 @@ const ManageAccessories = () => {
   const { data: accessories = [], refetch } = useQuery({
     queryKey: ['products'],
     queryFn: async () => {
-      const res = await fetch('http://localhost:5000/api/accessories');
+      const res = await fetch('https://motoscape-server.vercel.app/api/accessories');
       const data = await res.json();
       return data;
     }
@@ -17,7 +17,7 @@ const ManageAccessories = () => {
     const confirm = window.confirm('Do you want to delete this accessory?');
 
     if (confirm) {
-      fetch(`http://localhost:5000/api/accessories/${id}`, {
+      fetch(`https://motoscape-server.vercel.app/api/accessories/${id}`, {
         method: 'DELETE'
       })
         .then(res => res.json())

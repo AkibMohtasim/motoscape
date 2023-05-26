@@ -24,10 +24,10 @@ const Motorcycles = () => {
     setCurrentPage(e);
   }
 
-  let url = `http://localhost:5000/api/motorcycles${location.search}&pageNumber=${currentPage}&pageSize=${itemsPerPage}`;
+  let url = `https://motoscape-server.vercel.app/api/motorcycles${location.search}&pageNumber=${currentPage}&pageSize=${itemsPerPage}`;
 
   if (!location.search) {
-    url = `http://localhost:5000/api/motorcycles?pageNumber=${currentPage}&pageSize=${itemsPerPage}`;
+    url = `https://motoscape-server.vercel.app/api/motorcycles?pageNumber=${currentPage}&pageSize=${itemsPerPage}`;
   }
 
 

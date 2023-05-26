@@ -8,7 +8,7 @@ const ManageOrders = () => {
   const { data: orders = [], refetch } = useQuery({
     queryKey: ['orders'],
     queryFn: async () => {
-      const res = await fetch('http://localhost:5000/api/orders');
+      const res = await fetch('https://motoscape-server.vercel.app/api/orders');
       const data = await res.json();
       return data;
     }
@@ -25,7 +25,7 @@ const ManageOrders = () => {
     const confirm = window.confirm('Do you want to change the status to "Shipped"?');
 
     if (confirm) {
-      fetch(`http://localhost:5000/api/orders/${id}`, {
+      fetch(`https://motoscape-server.vercel.app/api/orders/${id}`, {
         method: 'PUT'
       })
         .then(res => res.json())
@@ -41,7 +41,7 @@ const ManageOrders = () => {
     const confirm = window.confirm('Do you want to delete the order?');
 
     if (confirm) {
-      fetch(`http://localhost:5000/api/orders/${id}`, {
+      fetch(`https://motoscape-server.vercel.app/api/orders/${id}`, {
         method: 'DELETE'
       })
         .then(res => res.json())

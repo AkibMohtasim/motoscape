@@ -21,7 +21,7 @@ const Reviews = ({ medium }) => {
   }
 
 
-  const url = `http://localhost:5000/api/reviews${medium}=${currentPage}&pageSize=${itemsPerPage}`;
+  const url = `https://motoscape-server.vercel.app/api/reviews${medium}=${currentPage}&pageSize=${itemsPerPage}`;
 
   // console.log(url)
 

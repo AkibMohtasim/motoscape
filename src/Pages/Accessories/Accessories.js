@@ -8,7 +8,7 @@ const Accessories = () => {
   const { data: accessories = [] } = useQuery({
     queryKey: ['accessories'],
     queryFn: async () => {
-      const res = await fetch('http://localhost:5000/api/accessories');
+      const res = await fetch('https://motoscape-server.vercel.app/api/accessories');
       const data = await res.json();
       return data;
     }

@@ -9,7 +9,7 @@ const MyOrders = () => {
   const [orders, setOrders] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/orders/findByemail/?email=${user?.email}`)
+    fetch(`https://motoscape-server.vercel.app/api/orders/findByemail/?email=${user?.email}`)
       .then(res => res.json())
       .then(data => setOrders(data));
   }, [user?.email])
@@ -19,7 +19,7 @@ const MyOrders = () => {
     const confirm = window.confirm('Are you sure you want to delete the order?');
 
     if (confirm) {
-      fetch(`http://localhost:5000/api/orders/${id}`, {
+      fetch(`https://motoscape-server.vercel.app/api/orders/${id}`, {
         method: 'DELETE'
       })
         .then(res => res.json())

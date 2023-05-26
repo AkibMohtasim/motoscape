@@ -8,7 +8,7 @@ const ManageMotorcycles = () => {
   const { data: motorcycles = [], refetch } = useQuery({
     queryKey: ['motorcycles'],
     queryFn: async () => {
-      const res = await fetch('http://localhost:5000/api/motorcycles');
+      const res = await fetch('https://motoscape-server.vercel.app/api/motorcycles');
       const data = await res.json();
       return data.motorcycles;
     }
@@ -18,7 +18,7 @@ const ManageMotorcycles = () => {
     const confirm = window.confirm('Do you want to delete the Motorcycle?');
 
     if (confirm) {
-      fetch(`http://localhost:5000/api/motorcycles/${id}`, {
+      fetch(`https://motoscape-server.vercel.app/api/motorcycles/${id}`, {
         method: 'DELETE'
       })
         .then(res => res.json())
