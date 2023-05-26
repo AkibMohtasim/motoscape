@@ -44,7 +44,7 @@ const ManageMotorcycles = () => {
   return (
     <div>
       <table className='table-auto mb-8'>
-        <caption className="caption-top text-center py-4">
+        <caption className="caption-top text-center py-4 text-2xl tracking-wider">
           Manage Motorcycles (Admin)
         </caption>
         <thead>

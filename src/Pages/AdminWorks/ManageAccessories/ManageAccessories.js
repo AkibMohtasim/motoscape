@@ -42,7 +42,7 @@ const ManageAccessories = () => {
   return (
     <div>
       <table>
-        <caption>
+        <caption className="caption-top text-center py-4 text-2xl tracking-wider">
           Manage Accessories (Admin)
         </caption>
         <thead>

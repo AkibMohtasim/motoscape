@@ -36,8 +36,8 @@ const AddAccessory = () => {
 
 
   return (
-    <div className='my-8 w-96 px-2  '>
-      <h2 className='my-4'>Add an Accessory</h2>
+    <div className='mb-8 w-96 px-2  '>
+      <h2 className="caption-top text-center py-4 text-2xl tracking-wider">Add an Accessory</h2>
       <form onSubmit={handleSubmit} className='flex flex-col gap-4 item font-sans'>
         <input type="text" name="name" placeholder='name' required />
         <input type="text" name="price" placeholder='price' required />

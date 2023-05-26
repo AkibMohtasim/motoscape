@@ -15,7 +15,12 @@ const ManageOrders = () => {
   });
 
 
-  const changeStatusHandler = id => {
+  const changeStatusHandler = (id, status) => {
+
+    if (status === 'Shipped') {
+      alert('This product has already been shipped!');
+      return;
+    }
 
     const confirm = window.confirm('Do you want to change the status to "Shipped"?');
 
@@ -62,7 +67,7 @@ const ManageOrders = () => {
   return (
     <div>
       <table className='table-auto mb-8'>
-        <caption className="caption-top text-center py-4">
+        <caption className="caption-top text-center py-4 text-2xl tracking-wider">
           Manage Orders (Admin)
         </caption>
         <thead>
@@ -71,6 +76,7 @@ const ManageOrders = () => {
             <th className='px-10 py-2 border tracking-wider'>Product Name</th>
             <th className='px-10 py-2 border tracking-wider'>Price</th>
             <th className='px-10 py-2 border tracking-wider'>Phone</th>
+            <th className='px-10 py-2 border tracking-wider'>Date</th>
             <th className='px-10 py-2 border tracking-wider'>Status</th>
             <th className='px-10 py-2 border tracking-wider'></th>
           </tr>
@@ -83,8 +89,9 @@ const ManageOrders = () => {
                 <td className='px-10 py-2 border'>{order.productName}</td>
                 <td className='px-10 py-2 border'>${order.price}</td>
                 <td className='px-10 py-2 border'>{order.phone}</td>
+                <td className='px-10 py-2 border'>{order.date}</td>
                 <td className='px-10 py-2 border'>
-                  <button onClick={() => changeStatusHandler(order._id)} className='bg-[#000000bf] hover:bg-[#000000df] duration-150 text-white px-3 py-1 rounded'>{order.status}</button>
+                  <button onClick={() => changeStatusHandler(order._id, order.status)} className={`${order.status === 'Pending' ? 'bg-[#000000bf] hover:bg-[#000000df]' : 'bg-blue-700'} duration-150 text-white px-3 py-1 rounded`}>{order.status}</button>
                 </td>
                 <td className='px-10 py-2 border'>
                   <button onClick={() => deleteOrderHandler(order._id)}

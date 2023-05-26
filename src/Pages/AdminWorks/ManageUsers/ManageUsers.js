@@ -46,7 +46,7 @@ const ManageUsers = () => {
   return (
     <div>
       <table>
-        <caption>
+        <caption className="caption-top text-center py-4 text-2xl tracking-wider">
           Manage Users (Admin)
         </caption>
         <thead>

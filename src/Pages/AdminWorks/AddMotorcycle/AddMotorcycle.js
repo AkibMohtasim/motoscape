@@ -51,8 +51,8 @@ const AddMotorcycle = () => {
 
 
   return (
-    <div className='w-96 px-2 my-8'>
-      <h2 className='text-2xl tracking-wider mb-6'>Add a new Motorcyle</h2>
+    <div className='w-96 px-2 mb-8'>
+      <h2 className='text-2xl tracking-wider py-4 text-center'>Add a new Motorcyle</h2>
       <form onSubmit={productSubmitHandler} className='flex flex-col gap-2 font-sans'>
         <input type="text" name="brand" placeholder='brand' required />
         <select name="category" required defaultValue="none">

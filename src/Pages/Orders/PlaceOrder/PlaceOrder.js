@@ -22,8 +22,8 @@ const PlaceOrder = () => {
     const message = form.message.value;
 
     const order = {
-      bike_id: _id,
-      bikeName: name,
+      product_id: _id,
+      productName: name,
       price,
       customerName,
       email,
