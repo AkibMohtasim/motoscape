@@ -1,8 +1,11 @@
 import React, { useContext } from 'react';
 import { useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider';
+import useTitle from '../../../Hooks/useTitle';
 
 const PlaceOrder = () => {
+
+  useTitle('Place an Order');
 
   const { user } = useContext(AuthContext);
 

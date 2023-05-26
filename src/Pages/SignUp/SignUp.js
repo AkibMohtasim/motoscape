@@ -8,6 +8,8 @@ import { FcGoogle } from 'react-icons/fc';
 
 const SignUp = () => {
 
+  useTitle('Register')
+
   const { createUser, googleSignIn, updateUser, setUser } = useContext(AuthContext);
   // const [createdUserEmail, setCreatedUserEmail] = useState('');
   const [errText, setErrText] = useState(null);

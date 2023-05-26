@@ -2,8 +2,11 @@ import { Pagination, Spinner } from 'flowbite-react';
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import MotorcycleCard from './MotorcycleCard';
+import useTitle from '../../Hooks/useTitle';
 
 const Motorcycles = () => {
+
+  useTitle('Motorcycles');
 
   const location = useLocation();
 

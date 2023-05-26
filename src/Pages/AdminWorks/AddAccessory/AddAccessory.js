@@ -1,6 +1,9 @@
 import React from 'react';
+import useTitle from '../../../Hooks/useTitle';
 
 const AddAccessory = () => {
+
+  useTitle('Add an Accessory - Admin');
 
   const handleSubmit = e => {
     e.preventDefault();

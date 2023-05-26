@@ -2,8 +2,11 @@ import { useQuery } from '@tanstack/react-query';
 import React from 'react';
 import AccessoryCard from './AccessoryCard';
 import { Spinner } from 'flowbite-react';
+import useTitle from '../../Hooks/useTitle';
 
 const Accessories = () => {
+
+  useTitle('Accessories');
 
   const { data: accessories = [] } = useQuery({
     queryKey: ['accessories'],

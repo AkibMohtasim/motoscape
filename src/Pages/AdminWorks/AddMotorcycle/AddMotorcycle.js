@@ -1,7 +1,9 @@
 import React from 'react';
+import useTitle from '../../../Hooks/useTitle';
 
 const AddMotorcycle = () => {
 
+  useTitle('Add a Motorcycle - Admin');
 
 
   const productSubmitHandler = e => {

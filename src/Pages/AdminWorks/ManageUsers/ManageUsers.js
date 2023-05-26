@@ -2,8 +2,11 @@ import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Spinner } from 'flowbite-react';
 import { MdAdminPanelSettings } from 'react-icons/md';
+import useTitle from '../../../Hooks/useTitle';
 
 const ManageUsers = () => {
+
+  useTitle('Manage Users - Admin');
 
   const { data: users = [], refetch } = useQuery({
     queryKey: ['users'],

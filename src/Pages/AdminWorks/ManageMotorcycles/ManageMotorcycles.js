@@ -2,8 +2,11 @@ import { useQuery } from '@tanstack/react-query';
 import { Spinner } from 'flowbite-react';
 import React from 'react';
 import { MdDeleteForever } from 'react-icons/md';
+import useTitle from '../../../Hooks/useTitle';
 
 const ManageMotorcycles = () => {
+
+  useTitle('Manage Motorcycles - Admin');
 
   const { data: motorcycles = [], refetch } = useQuery({
     queryKey: ['motorcycles'],

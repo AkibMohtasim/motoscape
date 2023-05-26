@@ -1,6 +1,6 @@
 # Project Details
 
-This is a demo website of Motorcycle and Accessories [Motoscape](https://github.com/facebook/create-react-app).
+This is a demo website of Motorcycle and Accessories [Motoscape Live Site](https://motoscape-16.web.app).
 
 ## Libraries and frameworks
 
@@ -25,3 +25,5 @@ tailwind and flowbite-react was used for styling.
 #### *for testing purpose, I have added an admin with the email admin@admin.com, the password is 123456*
 
 ### The purchase, book a test ride and learning program details will be added in the future.
+
+### some of the Admin components are not responsive. It was done deliberately, because an admin should have access to many properties of a data and he should modify the data from a computer, not a mobile device.

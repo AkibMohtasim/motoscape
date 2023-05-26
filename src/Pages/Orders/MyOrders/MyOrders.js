@@ -1,8 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../Contexts/AuthProvider';
 import OrderTable from './OrderTable';
+import useTitle from '../../../Hooks/useTitle';
 
 const MyOrders = () => {
+
+  useTitle('Your Orders');
 
   const { user } = useContext(AuthContext);
 

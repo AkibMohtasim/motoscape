@@ -8,8 +8,12 @@ import IMEIFacility from '../IMEIFacility/IMEIFacility';
 import TrainingProgram from '../../Shared/TrainingProgram/TrainingProgram';
 import TestRide from '../TestRide/TestRide';
 import Facilities from '../Facilities/Facilities';
+import useTitle from '../../../Hooks/useTitle';
 
 const Home = () => {
+
+  useTitle('Home');
+
   return (
     <div>
       <Banner />
