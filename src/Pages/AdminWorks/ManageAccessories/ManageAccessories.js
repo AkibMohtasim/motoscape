@@ -52,7 +52,7 @@ const ManageAccessories = () => {
         <thead>
           <tr>
             <th className='px-10 py-2 border'>Product Name</th>
-            <th className='px-10 py-2 border'>Status</th>
+            <th className='px-10 py-2 border'>Price</th>
             <th className='px-10 py-2 border'>Delivery Date</th>
             <th className='px-10 py-2 border'> </th>
           </tr>
@@ -62,7 +62,7 @@ const ManageAccessories = () => {
             accessories.map(a =>
               <tr key={a._id}>
                 <td className='px-10 py-2 border'>{a.name}</td>
-                <td className='px-10 py-2 border'>{a.price}</td>
+                <td className='px-10 py-2 border'>${a.price}</td>
                 <td className='px-10 py-2 border'>
                   <button onClick={() => deleteOrderHandler(a._id)} className='bg-red-600 hover:bg-red-800 duration-150 text-white px-3 py-1 rounded'>Delete <MdDeleteForever className='inline' /></button>
                 </td>
