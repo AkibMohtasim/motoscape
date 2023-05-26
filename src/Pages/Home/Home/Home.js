@@ -12,7 +12,7 @@ import useTitle from '../../../Hooks/useTitle';
 
 const Home = () => {
 
-  useTitle('Home');
+  useTitle('Motoscape');
 
   return (
     <div>
